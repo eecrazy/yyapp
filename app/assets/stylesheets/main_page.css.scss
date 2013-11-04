@@ -1,0 +1,30 @@
+// Place all the styles related to the main_page controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+footer {
+    margin-top: 10px;
+    padding-top: 0px;
+    nav{
+        padding-left: 38.2%;
+        ul{
+            list-style: none;
+            li{
+                float: left;
+                margin-left: 10px;
+                a{
+                    color: #666;
+                    &:hover{
+                        color: #000;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+    p{
+        color: #666;
+        text-align: center;
+        clear: both;
+    }
+}
