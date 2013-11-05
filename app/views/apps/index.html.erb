@@ -1,0 +1,18 @@
+<% provide(:title, "管理APP") %>
+<% if can?(:create, App)%>
+  <%= link_to '创建APP', new_app_path, type:"button", class:"btn btn-info",style:"float:right" %>
+<% end %>
+<h1>APP list</h1>
+<hr/>
+<% @apps.each do |app| %>
+  <div class="row">
+    <h2><%= link_to app.name, app %></h2>
+    <p><%= app.description %></p>
+    <% if can?(:modify, App)%>
+      <%= link_to '编辑', edit_app_path(app), class:"btn btn-default"%>
+      <%= link_to '删除', app, method: :delete, data: { confirm: '确认删除?' }, class:"btn btn-default" %>
+    <% end %>
+  </div>
+  </hr>
+<% end %>
+

@@ -1,0 +1,19 @@
+<%= simple_form_for @app  do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name, :required => true , :autofocus => true %>
+    <%= f.input :author %>
+    <%= f.input :link %>
+    <%= f.input :version %>
+    <%= f.input :file_size %>
+    <%= f.input :description %>
+    <%= f.input :last_updated_content %>
+    <%= f.input :last_updated_at %>
+    <%= f.input :store_rate %>
+  </div>
+  <br/>
+  <div class="form-actions">
+    <%= f.button :submit, "提交" , class: "btn btn-default btn-primary" %>
+  </div>
+<% end %>

@@ -43,6 +43,7 @@
             <ul class="dropdown-menu">
 	      <% if can? :manage, User %>
 		<li><%= link_to "管理用户", users_path %></li> 
+		<li><%= link_to "管理APP", apps_path %></li> 
 	      <% end %>
 	      <li><%= link_to "资料", current_user %></li>
               <li><%= link_to "修改资料", edit_user_registration_path %> </li>

@@ -1,7 +1,7 @@
 class MainPageController < ApplicationController
   def index
     if user_signed_in?
-      flash[:success] = "signed"
+      @apps = App.limit(5).order("updated_at desc")
     else
        render 'sign'
     end    

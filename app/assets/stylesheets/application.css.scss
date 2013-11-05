@@ -7,6 +7,7 @@ $navbar-default-link-hover-color:#777;
 @import "bootstrap";
 
 form.simple_form {
+  input{width: 300px };
   input#user_login,
   input#user_username,
   input#user_password_confirmation,
