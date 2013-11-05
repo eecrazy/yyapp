@@ -3,4 +3,30 @@ $light-orange: #ff8c00;
 $navbar-default-color: $light-orange;
 $navbar-default-link-color:#fff;
 $navbar-default-link-hover-color:#777;
+
 @import "bootstrap";
+
+form.simple_form {
+  input#user_login,
+  input#user_username,
+  input#user_password_confirmation,
+  input#user_password { width: 150px; }
+  input#user_email { width:200px; }
+}
+form label{
+width: 150px;
+}
+
+.container{
+margin-left: 100px;
+margin-right: 100px;
+}
+
+.dropdown-toggle img
+{
+  padding-right: 5px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}

@@ -12,10 +12,20 @@
     <% flash.each do |key, value| %>
       <%= content_tag(:div, value, class: "alert alert-info") %>
     <% end %>   
+    <div class="row container">
 
-    <div class="container">
+    <% if (request.fullpath.include? "users/sign") || (request.fullpath.include? "users/password") %>
+      <div class="col-md-9">
+	<%= yield %>
+      </div>
+      <div class="col-md-3">
+	<%= render "devise/shared/links" %>
+      </div>
+    <% else %>
       <%= yield %>
+    <% end %>
     </div>
+
     <%= render('layouts/footer') %>
     <%= debug(params) if Rails.env.development? %>
   </body>

@@ -1,0 +1,16 @@
+<%= form_for @user do |f| %>
+
+<%= render 'error_messages' %>
+
+<%=f.label :username, "昵称"%>
+<%=f.text_field :username%>
+<%=f.label :email, "邮箱"%>
+<%=f.text_field :email%>
+<%=f.label :password, "密码"%>
+<%=f.password_field :password%>
+<%=f.label :password_confirmation, "密码确认"%>
+<%=f.password_field :password_confirmation%>
+
+<%=f.submit "提交", class: "btn btn-default btn-primary"  %>
+
+<% end %>

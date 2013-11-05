@@ -4,11 +4,21 @@ Devise.setup do |config|
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class with default "from" parameter.
-  config.mailer_sender = "norepleytoyyapp@163.com"
+  config.authentication_keys = [ :login ]
+  config.reset_password_keys = [ :login ]
+  config.confirmation_keys = [ :login ]
 
+  config.mailer_sender = Setting.email_sender
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"
 
+  
+  # ==> OmniAuth
+  config.omniauth :github, Setting.github_token, Setting.github_secret
+  config.omniauth :douban, Setting.douban_token, Setting.douban_secret
+  config.omniauth :weibo,  Setting.weibo_token,  Setting.weibo_secret
+  config.omniauth :google, Setting.google_token, Setting.google_secret
+  
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be

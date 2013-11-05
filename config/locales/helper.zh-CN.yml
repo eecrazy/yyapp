@@ -1,0 +1,5 @@
+helpers:
+    submit:
+      user:
+        create: "建立"
+        update: "更新"

@@ -1,11 +1,25 @@
 Yyapp::Application.routes.draw do
-  devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'main_page#index'
   match '/sign', to: 'main_page#sign', via:'get'
+
+  devise_for :users ,:path => "users", :controllers => {
+    :registrations => :users,
+    :sessions => :sessions,
+    :omniauth_callbacks => "users/omniauth_callbacks"
+  }
+
+  devise_scope :user do
+    get "users/:id" => "users#show"
+    get "users" => "users#index"
+  end
+
+  resources :users
+  match '/users/destroy/:id', to: 'users_destroy#cancel', as: "destroy_user", via: "delete"
+  
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

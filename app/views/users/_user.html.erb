@@ -1,0 +1,7 @@
+<li>
+  <%= gravatar_for user, size:52 %>
+  <%= link_to user.username, user %>
+  <% if can? :modify, User %>
+    | <%= link_to "删除账号", destroy_user_path(user), :data => { :confirm => "真的确定要注销掉账号?" }, :method => :delete %>
+  <% end %>
+</li>

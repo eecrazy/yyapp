@@ -1,0 +1,29 @@
+zh-CN:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "请输入邮箱账号!"
+              taken: "该邮箱已被使用"
+              invalid: "请使用一个正确的邮箱"
+            password:
+              blank: "请输入密码"
+              too_short: "密码太短."
+            password_confirmation:
+              blank: "请确认您的密码"
+              confirmation: "密码不匹配!"
+            current_password:
+              invalid: "无效的新密码!"
+            login:
+              blank: "请输入用户名"
+            user_name:
+              blank: "请输入用户名"
+            nickname:
+              blank: "请输入您的昵称"
+      template:
+        header:
+          one:   "错误!"
+          other: "%{count}个错误使得资料无法提交!"
+        body:    "出现如下问题:"

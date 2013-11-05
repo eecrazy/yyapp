@@ -1,0 +1,32 @@
+zh-CN:
+  simple_form:
+    "yes": 'Yes'
+    "no": 'No'
+    required:
+      text: 'required'
+      mark: '*'
+    error_notification:
+      default_message: "请检查下面的错误信息:"
+    labels:
+      user:
+        login: '用户名或邮箱'
+        username: '用户名'
+        email: '邮箱'
+        password: '密码'
+        password_confirmation: '确认密码'
+        current_password: '新密码'
+        remember_me: '记住我'
+      participator:
+        name: "姓名"
+        email: "邮箱"
+        telephone: "手机或电话"
+        suggestion: "想对这次活动说什么"
+        company: "公司"
+        position: "职位"
+    hints:
+      user:
+    placeholders:
+      user:
+          email: 'somebody@gmail.com'
+          username: 'somebody'
+          

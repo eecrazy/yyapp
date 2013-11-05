@@ -1,5 +1,9 @@
-<p>Welcome <%= @email %>!</p>
+<p>您好 <%= @email %>!</p>
+<p>欢迎您注册盐科技.</p>
+<p>你可以通过下面的链接确认您的账户:</p>
 
-<p>You can confirm your account email through the link below:</p>
+<p><%= link_to '确认账户', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>
+<p>如果您未在该网站提交注册,请不要点击上面链接并忽视这封邮件.</p>
+
+<a href="http://www.yankeji.cn">盐科技</a>

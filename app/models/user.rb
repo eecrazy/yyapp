@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   :recoverable, :rememberable, :trackable, :validatable,
   :omniauthable, :authentication_keys => [:login]
 
+  attr_accessor :login
+
    # for omniauth 
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup

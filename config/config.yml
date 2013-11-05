@@ -1,0 +1,42 @@
+# config/config.yml
+defaults: &defaults
+  app_name: "yyAPP"
+  foot_html: "&copy; yyAPP."
+  domain: "http://127.0.0.1:3000"
+  admin_emails:
+    - "cnmpp902@gmail.com"
+  email_sender: 'yyAPP-noreply@163.com'
+  email_password: '123456'
+  # here are some token and secret for omniauth
+  # github and douban  can find easy
+  # weibo : http://open.weibo.com/
+  # google :https://code.google.com/apis/console/#project:297421614811
+  github_token: ""
+  github_secret: ""
+  douban_token: ""
+  douban_secret: ""
+  weibo_token: ""
+  weibo_secret: ""
+  google_token: ".apps.googleusercontent.com"
+  google_secret: ""
+  google_js_api_key: ""
+  google_custom_search_id: ""
+  gravatar_proxy: "http://gravatar.com"
+development:
+  <<: *defaults
+  neat_setting: 800
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
+  domain: ""
+  github_token: ""
+  github_secret: ""
+  google_token: ""
+  google_secret: ""
+  weibo_token: ""
+  weibo_secret: ""
+  douban_token: ""
+  douban_secret: ""

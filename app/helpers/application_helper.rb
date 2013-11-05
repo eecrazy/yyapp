@@ -15,7 +15,7 @@ module ApplicationHelper
     size = options[:size]
     # if you want set a default photos , add &d= 
     gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}.png?s=#{size}"
-    image_tag(gravatar_url, alt: user.name, class: "gravatar")
+    image_tag(gravatar_url, alt: user.username, class: "gravatar")
   end
 
 end

@@ -1,0 +1,14 @@
+<div class="container box" id="main_content">
+  <div class="profile">
+    <hr>
+    <div class=gravatar><%= gravatar_for @user,size:70 %></div>  
+    <a href="http://gravatar.com/emails">修改Gravatar头像</a>
+    <hr>
+    <p>Name:<%= @user.username %></p> 
+    <p>Email:<%= @user.email %></p>
+    <hr>
+    <% if @user.id == current_user.id %>
+      <%= link_to "修改资料", edit_user_registration_path %>
+    <% end %>
+  </div>  
+</div>
