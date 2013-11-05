@@ -1,8 +1,10 @@
-$navbar-default-bg: #563D7C;
-$light-orange: #ff8c00;
+$navbar-default-bg: #47A1BA; 
+$light-orange: #fff;
 $navbar-default-color: $light-orange;
 $navbar-default-link-color:#fff;
-$navbar-default-link-hover-color:#777;
+$navbar-default-link-hover-color:#fff;
+$border-radius-base: 3px;
+$navbar-border-radius: 0px;
 
 @import "bootstrap";
 
@@ -13,6 +15,14 @@ form.simple_form {
   input#user_password_confirmation,
   input#user_password { width: 150px; }
   input#user_email { width:200px; }
+  #user_remember_me{
+      width: 15px;
+      margin-left: 150px;
+  }
+  input.btn{
+      width: 100px;
+      margin-left: 150px;
+  }
 }
 form label{
 width: 150px;

@@ -9,11 +9,12 @@
   </head>
   <body>
     <%= render "layouts/header" %>
+
     <% flash.each do |key, value| %>
       <%= content_tag(:div, value, class: "alert alert-info") %>
     <% end %>   
-    <div class="row container">
 
+    <div class="row container">
     <% if (request.fullpath.include? "users/sign") || (request.fullpath.include? "users/password") %>
       <div class="col-md-9">
 	<%= yield %>
