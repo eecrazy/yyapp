@@ -4,7 +4,7 @@ class AppsController < ApplicationController
   before_action :set_app, only: [:show, :edit, :update, :destroy]
 
   def new
-    @app = App.new
+    @img = @app.images.new
   end
    
   def create
