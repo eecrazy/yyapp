@@ -10,7 +10,7 @@ class ImageController < ApplicationController
     full_url = Setting.domain+@img.file.url
     render :text => full_url
   end
-
+  
   def destroy
     @img.destroy
   end

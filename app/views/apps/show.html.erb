@@ -15,3 +15,24 @@
 <% @app.images.each do |image| %>
     <%= image_tag image.url %>
 <% end %>
+
+<p>Tags:</p>
+<p class = "ptag"><%= raw  @app.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join('  ') %></p>
+
+<hr/>
+<% if @comments.try(:any?) %>
+  <ul class="comment-item">
+    <%= render @comments %>
+  </ul>
+<% end %>
+
+
+<% if can? :create, @comment %>
+ <%= simple_form_for [@app, @comment] do |f| %>
+    <%= f.input :comment, input_html: { rows: 5 }%>
+    <br/>
+    <%= f.button :submit, "Add Comment", class: 'btn-primary' %>
+  <% end %>
+<% end %>
+
+

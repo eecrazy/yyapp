@@ -20,7 +20,12 @@ Yyapp::Application.routes.draw do
   resources :users
   match '/users/destroy/:id', to: 'users_destroy#cancel', as: "destroy_user", via: "delete"
 
-  resources :apps
+  get 'tags/:tag', to: 'apps#index', as: :tag
+  
+  resources :apps do
+    resources :comments , :only => [:create]
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

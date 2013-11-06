@@ -4,7 +4,8 @@ class AppsController < ApplicationController
   before_action :set_app, only: [:show, :edit, :update, :destroy]
 
   def new
-    @img = @app.images.new
+    @app = App.new
+    #@img = @app.images.new
   end
    
   def create
@@ -18,10 +19,16 @@ class AppsController < ApplicationController
   end
   
   def show
+    @comments = @app.comments.paginate(page: params[:page], :per_page => 15)
+    @comment = Comment.new
   end
 
   def index
-    @apps = App.paginate(page: params[:page], :per_page => 15)
+    if params[:tag]  
+      @apps = App.tagged_with(params[:tag]).paginate(page: params[:page], :per_page => 15)
+    else
+      @apps = App.paginate(page: params[:page], :per_page => 15)
+    end
   end
   
   def edit
@@ -50,7 +57,7 @@ class AppsController < ApplicationController
   def app_params
     params.require(:app).permit(:name, :main_image, :author, :link, :version,
                                 :file_size, :description, :last_updated_at,
-                                :last_updated_content, :store_rate, :images)
+                                :last_updated_content, :store_rate, :images, :tag_list)
   end
   
 end
