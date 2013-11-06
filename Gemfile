@@ -1,7 +1,7 @@
 source 'http://ruby.taobao.org/'
 ruby '2.0.0'
 gem 'rails', '4.0.0'
-
+gem 'railties', '4.0.0'
 #-------------------------------------------
 ## basic
 #-------------------------------------------
@@ -9,8 +9,8 @@ gem 'rails', '4.0.0'
 gem 'unicorn'
 
 # ImageUploader
-#gem 'carrierwave', '0.9.0'
-#gem "mini_magick"
+gem 'carrierwave'
+gem "mini_magick"
 
 gem "settingslogic", "2.0.9"
 #-------------------------------------------

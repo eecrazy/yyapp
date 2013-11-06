@@ -1,5 +1,7 @@
 <% provide(:title, @app.name) %>
 <h2><%= @app.name %></h2>
+<%= image_tag(@app.main_image_url) %>
+
 <hr/>
 <p><%= @app.author %></p>
 <p><%= @app.link %></p>
@@ -9,3 +11,7 @@
 <p><%= @app.last_updated_content %></p>
 <p><%= @app.last_updated_at %></p>
 <p><%= @app.store_rate %></p>
+
+<% @app.images.each do |image| %>
+    <%= image_tag image.url %>
+<% end %>

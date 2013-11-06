@@ -38,7 +38,7 @@ class AppsController < ApplicationController
 
   def destroy
     @app.destroy
-    redirect_to root_url
+    redirect_to apps_path
   end
   
   private
@@ -48,9 +48,9 @@ class AppsController < ApplicationController
    end
    
   def app_params
-    params.require(:app).permit(:name, :author, :link, :version, :file_size,
-                                 :description, :last_updated_at,
-                                 :last_updated_content, :store_rate)
+    params.require(:app).permit(:name, :main_image, :author, :link, :version,
+                                :file_size, :description, :last_updated_at,
+                                :last_updated_content, :store_rate, :images)
   end
   
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131105193723) do
+ActiveRecord::Schema.define(version: 20131106114809) do
 
   create_table "apps", force: true do |t|
     t.string   "name",                 default: "", null: false
@@ -23,6 +23,14 @@ ActiveRecord::Schema.define(version: 20131105193723) do
     t.text     "last_updated_content", default: ""
     t.datetime "last_updated_at"
     t.integer  "store_rate",           default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "main_image"
+  end
+
+  create_table "images", force: true do |t|
+    t.string   "file"
+    t.integer  "app_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
