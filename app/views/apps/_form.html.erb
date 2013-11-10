@@ -1,23 +1,48 @@
-<%= simple_form_for @app, html: {multipart: true}  do |f| %>
+<%= simple_form_for @app do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
     <%= f.input :name, :required => true , :autofocus => true %>
-    <%= f.input :author %>
-    <%= f.input :main_image, as: :file %>
-    <%= f.input :link %>
+    <%= f.input :main_image%>
+   
+    <%= f.input :catg %>
     <%= f.input :version %>
     <%= f.input :file_size %>
-    <%= f.input :description %>
-    <%= f.input :last_updated_content %>
     <%= f.input :last_updated_at %>
+    <%= f.input :lang %>
+    <%= f.input :sys_command %>
+    <%= f.input :down_times %>
     <%= f.input :store_rate %>
+
+    <%= f.input :description %>
+    
     <%= f.input :tag_list ,:placeholder => "标签" %>
+
   </div>
-  <br/>
+  <br/>  
   <div class="form-actions">
     <%= f.button :submit, "提交" , class: "btn btn-default btn-primary" %>
   </div>
 <% end %>
 
+<hr/>
 
+<!-- <div class="input string optional"> -->
+<!--   <label class="string optional">add detail image(URL)</label> -->
+<!--   <br/> -->
+<!--   <input class="string optional image-url" maxlength="255"  type="text" /> -->
+<!--   <button class="add-url-image btn btn-default">URL添加</button> -->
+<!-- </div> -->
+
+<div class = "image-list">
+<% @app.images.each do |image| %>
+  <%= image_tag image.file %>
+  <%= link_to '删除', image, method: :delete, data: { confirm: '确认删除?' }, class:"btn btn-default" %>
+<% end %>
+</div>
+
+<%= simple_form_for [@app, @img] do |f| %>
+  <%= f.input :file %>
+  <br/>
+  <%= f.button :submit, "Add image", class: 'btn-primary' %>
+<% end %>

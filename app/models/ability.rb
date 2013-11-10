@@ -16,14 +16,14 @@ class Ability
         (u.id == user.id)
       end
 
-
     elsif user.has_role?(:member)
 
-      #can :create , Comment       
+      can :create , Comment 
       # can :create, Post
       # can :modify, Post do |post|
       #   (post.user_id == user.id)
       # end
+
       can :modify , User do |u|
         (u.id == user.id)
       end

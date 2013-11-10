@@ -5,7 +5,7 @@ class AppsController < ApplicationController
 
   def new
     @app = App.new
-    #@img = @app.images.new
+    @img = Image.new
   end
    
   def create
@@ -32,6 +32,7 @@ class AppsController < ApplicationController
   end
   
   def edit
+    @img = Image.new
   end
 
   def update
@@ -55,9 +56,10 @@ class AppsController < ApplicationController
    end
    
   def app_params
-    params.require(:app).permit(:name, :main_image, :author, :link, :version,
+    params.require(:app).permit(:name, :main_image, :catg, :version, :lang,
                                 :file_size, :description, :last_updated_at,
-                                :last_updated_content, :store_rate, :images, :tag_list)
+                                :store_rate, :images, :tag_list, :sys_command,
+                                :down_times)
   end
   
 end

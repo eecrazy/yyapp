@@ -13,6 +13,7 @@
 // Include all twitter's javascripts
 //= require jquery
 //= require jquery_ujs
+//= require jquery.html5-fileupload
 //= require turbolinks
 //= require_tree .
 //= require bootstrap

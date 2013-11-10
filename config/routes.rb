@@ -24,7 +24,10 @@ Yyapp::Application.routes.draw do
   
   resources :apps do
     resources :comments , :only => [:create]
+    resources :images , :only => [:create,:destroy]
   end
+  resources :images
+  #match '/images', to: 'images#create', via:'post'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

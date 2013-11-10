@@ -1,8 +1,9 @@
 <div class="jumbotron">
   <h2>最新app</h2>
   <% @apps.each do |app| %>
-    <h3><%= link_to app.name, app %></h3>
-    <p><%= app.description %></p>
+    <h3>    <%= image_tag(app.main_image) %> <%= link_to app.name, app %></h3>
     </hr>
   <% end %>
 </div>
+
+

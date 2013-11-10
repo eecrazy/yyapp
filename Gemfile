@@ -15,6 +15,13 @@ gem "mini_magick"
 gem "settingslogic", "2.0.9"
 #-------------------------------------------
 
+#for rake
+# Web Spider Framework
+gem 'anemone'
+
+# Html Parser gem
+gem 'nokogiri'
+
 #-------------------------------------------
 ## local
 #-------------------------------------------

@@ -14,15 +14,16 @@
 ActiveRecord::Schema.define(version: 20131106194610) do
 
   create_table "apps", force: true do |t|
-    t.string   "name",                 default: "", null: false
-    t.string   "author",               default: ""
-    t.string   "link",                 default: ""
-    t.string   "version",              default: ""
-    t.string   "file_size",            default: ""
-    t.text     "description",          default: ""
-    t.text     "last_updated_content", default: ""
-    t.datetime "last_updated_at"
-    t.integer  "store_rate",           default: 0
+    t.string   "name",            default: "",  null: false
+    t.string   "version",         default: ""
+    t.string   "file_size",       default: ""
+    t.string   "catg",            default: ""
+    t.date     "last_updated_at"
+    t.string   "lang",            default: ""
+    t.string   "sys_command",     default: ""
+    t.integer  "down_times",      default: 0
+    t.float    "store_rate",      default: 0.0
+    t.text     "description",     default: ""
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "main_image"

@@ -1,19 +1,21 @@
 <% provide(:title, @app.name) %>
 <h2><%= @app.name %></h2>
-<%= image_tag(@app.main_image_url) %>
+<%= image_tag(@app.main_image) %>
 
 <hr/>
-<p><%= @app.author %></p>
-<p><%= @app.link %></p>
+<p><%= @app.catg %></p>
 <p><%= @app.version %></p>
 <p><%= @app.file_size %></p>
-<p><%= @app.description %></p>
-<p><%= @app.last_updated_content %></p>
 <p><%= @app.last_updated_at %></p>
+<p><%= @app.lang %></p>
+<p><%= @app.sys_command %></p>
+<p><%= @app.down_times %></p>
 <p><%= @app.store_rate %></p>
 
+<%= raw(@app.description) %>
+
 <% @app.images.each do |image| %>
-    <%= image_tag image.url %>
+    <%= image_tag image.file %>
 <% end %>
 
 <p>Tags:</p>
