@@ -2,16 +2,18 @@
 task crawapp: :environment do
   require 'anemone'
   require 'nokogiri'
-  #domain = "http://www.wandoujia.com/apps"
-  domain = "http://www.25pp.com/iphone/soft/info_741473.html"
-  
+  domain = "http://www.nduoa.com/package/detail/21035"
+  #domain = "http://www.25pp.com/iphone/soft/info_741473.html"
+  # @duser  =  User.create!(username: "网络上神秘的不知名用户",
+  #                     email:"yoyo@yyapp.com",
+  #                     encrypted_password: "12345678")
   Anemone.crawl(domain , :delay => 3) do |anemone|
     #anemone.on_every_page do |page|
-    anemone.on_pages_like(/iphone\/soft\/[^?]*$/) do | page |  
+    anemone.on_pages_like(/package\/detail\/[0-9]*$/) do | page |  
       doc = Nokogiri::HTML(open(page.url))      
       # app名称
       name = ""
-      doc.css('.head1 h2').each do |tag|
+      doc.css('.name span.title').each do |tag|
         name =  tag.content
       end
 
@@ -20,44 +22,78 @@ task crawapp: :environment do
 
       next if name == ""
       
-      # logo
-      main_image = doc.css('.pic img')[0]["src"]
-      # version
-      version =  doc.css('.edition li span')[0].text
-      # 类别
-      catg = doc.css('.edition li span')[1].text
-      # 大小
-      file_size =  doc.css('.edition li span')[2].text
-      # 时间
-      last_updated_at =  doc.css('.edition li span')[3].text
-      # 语言
-      lang = doc.css('.edition li span')[4].text
-      # 系统要求
-      sys_command =  doc.css('.edition li span')[5].text
-      # star
-      store_rate =  doc.css('.star2 h3 span')[0].text
-      # down times
-      down_times = doc.css('.download_times span')[0].text.to_i
-      # 介绍
-      description = ""
-      doc.css('#detailed p').each{|tag| description +=tag.content}
-      
+      icon = doc.css('.icon img')[0]["src"]
 
-      App.create!(name: name,
-                  version: version,
-                  main_image: main_image,
-                  catg: catg,
-                  file_size: file_size,
-                  last_updated_at: last_updated_at,
-                  lang: lang,
-                  sys_command: sys_command,
-                  down_times: down_times,
-                  store_rate: store_rate,
-                  description: description)
+      puts icon
+      
+      ver =  doc.css('.version')[0].text
+
+      puts ver
+      
+      ctag = doc.css("#breadcrumbs span a")[2].text
+      ctag = ctag..gsub(/[\.\,]/,'_')
+      puts ctag
+      
+      fsize =  doc.css('.size')[0].text
+
+      puts fsize
+
+      dtimes = ""
+      str =  doc.css('.count')[0].text
+      str.gsub(/\d/).each{|tag| dtimes = dtimes +tag}
+      dtimes = dtimes.to_i
+      
+      env =  doc.css('.adapt h4')[0].text
+
+      puts env
+      
+      author =  doc.css('.author span a')[0].text
+      author = author.gsub(/[\.\,]/,'_')
+      puts author
+      
+      uptime = doc.css('.updateTime em')[0].text
+      uptime = Date.today - uptime.gsub(/\d/).first.to_i
+        
+      puts uptime
+      
+      rate = 0;
+      doc.css('.starWrap s').each do |tag|        
+        rate = rate+1 if tag['class'].include? 'full'
+        rate = rate + 0.5  if  tag['class'].include? 'half'                       
+      end
+
+      puts rate
+                             
+      desc = ""
+      desc = doc.css('#detailInfo .content .inner')[0].to_s
+      #doc.css('.content .inner p').each{|tag| desc +=tag}
+                   
+      puts desc
+
+      @app =  App.create!(name: name,
+                          icon: icon,
+                          ver: ver,            
+                          fsize: fsize,
+                          dtimes: dtimes,
+                          env: env,
+                          uptime: uptime,
+                          rate: rate,
+                          desc: desc,
+                          tag_list: "#{ctag},#{author}"
+                   )
+
+            
+      doc.css('ul.shotbox li img').each do |tag|
+         @app.images.create!(file: tag["src"])
+      end
+
+      doc.css('ul.commentList li p.txt').each do |tag|
+        comment = @app.comments.create!(comment: tag.text,
+                                        user_id: 1)
+      end
+      
+      
     end  
   end
 end
-
-
-
 

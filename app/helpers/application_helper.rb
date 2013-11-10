@@ -22,8 +22,17 @@ module ApplicationHelper
     max = tags.sort_by(&:count).last
     tags.each do |tag|
       index = tag.count.to_f / max.count * (classes.size - 1)
-      yield(tag, classes[index.round])
+      if index >0.2
+        yield(tag, classes[index.round])
+      end
+      
     end
   end
 
+  def soft_list
+["必备软件","社交通讯","影音拍摄","办公理财","新闻资讯", "地图导航", "系统工具", "生活购物旅行", "壁纸主题铃声", "漫画电子书", "DIY作品"]
+  end
+  def game_list
+    ["必备游戏", "网络游戏", "冒险闯关", "赛车竞速", "飞行射击", "益智休闲", "策略塔防", "棋牌桌游", "经营养成", "角色扮演", "体育运动", "格斗对战", "音乐游戏", "街机模拟"]
+  end
 end

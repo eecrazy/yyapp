@@ -14,19 +14,17 @@
 ActiveRecord::Schema.define(version: 20131106194610) do
 
   create_table "apps", force: true do |t|
-    t.string   "name",            default: "",  null: false
-    t.string   "version",         default: ""
-    t.string   "file_size",       default: ""
-    t.string   "catg",            default: ""
-    t.date     "last_updated_at"
-    t.string   "lang",            default: ""
-    t.string   "sys_command",     default: ""
-    t.integer  "down_times",      default: 0
-    t.float    "store_rate",      default: 0.0
-    t.text     "description",     default: ""
+    t.string   "name",       default: "",  null: false
+    t.string   "icon",       default: ""
+    t.string   "ver",        default: ""
+    t.integer  "dtimes",     default: 0
+    t.string   "fsize",      default: ""
+    t.string   "env",        default: ""
+    t.date     "uptime"
+    t.float    "rate",       default: 0.0
+    t.text     "desc",       default: ""
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "main_image"
   end
 
   create_table "comments", force: true do |t|
@@ -58,6 +56,7 @@ ActiveRecord::Schema.define(version: 20131106194610) do
 
   create_table "tags", force: true do |t|
     t.string   "name"
+    t.integer  "ttype",      default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -2,3 +2,15 @@
 <h2>修改APP</h2>
 <hr/>
 <%= render 'form' %>
+<div class = "image-list">
+<% @app.images.each do |image| %>
+  <%= image_tag image.file %>
+  <%= link_to '删除', image, method: :delete, data: { confirm: '确认删除?' }, class:"btn btn-default" %>
+<% end %>
+</div>
+
+<%= simple_form_for [@app, @img] do |f| %>
+  <%= f.input :file %>
+  <br/>
+  <%= f.button :submit, "Add image", class: 'btn-primary' %>
+<% end %>

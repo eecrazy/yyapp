@@ -1,18 +1,18 @@
 <% provide(:title, @app.name) %>
 <h2><%= @app.name %></h2>
-<%= image_tag(@app.main_image) %>
+<%= image_tag(@app.icon) %>
 
 <hr/>
-<p><%= @app.catg %></p>
-<p><%= @app.version %></p>
-<p><%= @app.file_size %></p>
-<p><%= @app.last_updated_at %></p>
-<p><%= @app.lang %></p>
-<p><%= @app.sys_command %></p>
-<p><%= @app.down_times %></p>
-<p><%= @app.store_rate %></p>
+<p>版本:<%= @app.ver %></p>
+<p>大小:<%= @app.fsize %></p>
+<p>环境:<%= @app.env %></p>
+<p>作者:<%= link_to @app.tags[-2].name, tag_path(@app.tags[0].name)%></p>
+<p>分类:<%= link_to @app.tags[-1].name, tag_path(@app.tags[1].name)%></p>
+<p>下载次数:<%= @app.dtimes %></p>
+<p>最后更新时间:<%= @app.uptime %></p>
+<p>评分:<%= @app.rate %></p>
 
-<%= raw(@app.description) %>
+<%= raw(@app.desc) %>
 
 <% @app.images.each do |image| %>
     <%= image_tag image.file %>

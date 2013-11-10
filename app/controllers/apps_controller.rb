@@ -56,10 +56,10 @@ class AppsController < ApplicationController
    end
    
   def app_params
-    params.require(:app).permit(:name, :main_image, :catg, :version, :lang,
-                                :file_size, :description, :last_updated_at,
-                                :store_rate, :images, :tag_list, :sys_command,
-                                :down_times)
+    params.require(:app).permit(:name, :icon, :ctag, :ver, 
+                                :fsize, :env, :uptime,
+                                :rate, :images, :tag_list, 
+                                :dtimes, :desc, :author)
   end
   
 end
