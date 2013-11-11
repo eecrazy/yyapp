@@ -15,10 +15,10 @@ Yyapp::Application.routes.draw do
   devise_scope :user do
     get "users/:id" => "users#show"
     get "users" => "users#index"
+    match '/users/destroy/:id', to: 'users#cancel', as: "destroy_user", via: "delete"
   end
 
   resources :users
-  match '/users/destroy/:id', to: 'users_destroy#cancel', as: "destroy_user", via: "delete"
 
   get 'tags/:tag', to: 'apps#index', as: :tag
   

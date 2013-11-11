@@ -17,6 +17,7 @@
 	<li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">软件分类<b class="caret"></b></a>
           <ul class="dropdown-menu">
+	    <li><%= link_to "全部软件",tag_path("软件") %></li>
 	    <% soft_list.each do |tag| %>
 	      <li><%= link_to tag,tag_path(tag) %></li>
 	    <% end %>
@@ -25,6 +26,7 @@
 	<li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">游戏分类<b class="caret"></b></a>
           <ul class="dropdown-menu">
+	    <li><%= link_to "全部游戏",tag_path("游戏") %></li>
 	    <% game_list.each do |tag| %>
 	      <li><%= link_to tag,tag_path(tag) %></li>
 	    <% end %>

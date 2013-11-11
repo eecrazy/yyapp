@@ -6,8 +6,8 @@
 <p>版本:<%= @app.ver %></p>
 <p>大小:<%= @app.fsize %></p>
 <p>环境:<%= @app.env %></p>
-<p>作者:<%= link_to @app.tags[-2].name, tag_path(@app.tags[0].name)%></p>
-<p>分类:<%= link_to @app.tags[-1].name, tag_path(@app.tags[1].name)%></p>
+<p>作者:<%= link_to @app.tags[-3].name, tag_path(@app.tags[-3].name)%></p>
+<p>分类:<%= link_to @app.tags[-1].name, tag_path(@app.tags[-1].name)%> > <%= link_to @app.tags[-2].name, tag_path(@app.tags[-2].name)%></p>
 <p>下载次数:<%= @app.dtimes %></p>
 <p>最后更新时间:<%= @app.uptime %></p>
 <p>评分:<%= @app.rate %></p>

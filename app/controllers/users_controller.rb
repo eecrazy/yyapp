@@ -9,10 +9,9 @@ class UsersController < Devise::RegistrationsController
      @users = User.paginate(page: params[:page])
   end
 
-  def cancel 
+  def destroy
     @user = User.find(params[:id])
     @user.destroy
-    redirect_to root_path
   end
 
 end
