@@ -11,4 +11,13 @@
       <%= link_to "修改资料", edit_user_registration_path %>
     <% end %>
   </div>  
+  <hr/>
+  <h3>我的评论</h3>
+<hr/>
+<% if @comments.try(:any?) %>
+  <ul class="comment-item">
+    <%= render @comments %>
+  </ul>
+<% end %>
+<%= will_paginate @comments%>
 </div>

@@ -31,11 +31,11 @@ task crawapp: :environment do
       puts ver
       
       ctag = doc.css("#breadcrumbs span a")[2].text
-      ctag = ctag..gsub(/[\.\,]/,'_')
+      ctag = ctag.gsub(/[\.\,]/,'_')
       puts ctag
       
       fsize =  doc.css('.size')[0].text
-
+      fsize = fsize.split(':').last
       puts fsize
 
       dtimes = ""
@@ -44,7 +44,7 @@ task crawapp: :environment do
       dtimes = dtimes.to_i
       
       env =  doc.css('.adapt h4')[0].text
-
+      env = env.split(':').last
       puts env
       
       author =  doc.css('.author span a')[0].text

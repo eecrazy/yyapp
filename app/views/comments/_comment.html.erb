@@ -1,7 +1,10 @@
 <li>
-  <h4><%= gravatar_for comment.user, size: 26 %><%= link_to comment.user.username, comment.user %></h4>
-  <p><%= comment.comment %></p>
- 
+  <% if request.fullpath.include? "users" %>
+    <h4><%= link_to comment.app.name, comment.app %></h4>
+  <% else %>
+    <h4><%= gravatar_for comment.user, size: 26 %><%= link_to comment.user.username, comment.user %></h4>
+  <% end %>
+    <p><%= comment.comment %></p>
   <small>在<%= time_ago_in_words(comment.created_at) %>前发布</small>
   <hr/>
 </li>

@@ -27,7 +27,7 @@
     <%= render @comments %>
   </ul>
 <% end %>
-
+<%= will_paginate @comments%>
 
 <% if can? :create, @comment %>
  <%= simple_form_for [@app, @comment] do |f| %>

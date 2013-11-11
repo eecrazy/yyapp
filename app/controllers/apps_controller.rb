@@ -19,7 +19,7 @@ class AppsController < ApplicationController
   end
   
   def show
-    @comments = @app.comments.paginate(page: params[:page], :per_page => 15)
+    @comments = @app.comments.paginate(page: params[:page], :per_page => 10)
     @comment = Comment.new
   end
 
