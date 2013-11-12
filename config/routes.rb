@@ -4,8 +4,8 @@ Yyapp::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'main_pages#home'
-  resource :main_page
-  #root to: 'main_pages#home'  
+  #root to: 'main_pages#home'
+  match '/home', to: 'main_pages#home', via:'get'
   match '/index', to: 'main_pages#index', via:'get'
   match '/sign', to: 'main_pages#sign', via:'get'
 
