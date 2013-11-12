@@ -48,6 +48,7 @@ class AppsController < ApplicationController
     @app.destroy
     redirect_to apps_path
   end
+
   
   private
 

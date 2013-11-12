@@ -5,12 +5,8 @@ namespace :db do
     require 'anemone'
     require 'nokogiri'
     domain = "http://www.nduoa.com/package/detail/21035"
-    #domain = "http://www.25pp.com/iphone/soft/info_741473.html"
-     @duser  =  User.create!(username: "网络上神秘的不知名用户",
-                             email:"yyappdefult@126.com",
-                             :password => "123456",
-                             encrypted_password: "123456")
-
+    #domain = "http://www.nduoa.com/cat0?type=2"
+    @duser  =  User.first
     Anemone.crawl(domain , :delay => 3) do |anemone|
       #anemone.on_every_page do |page|
       anemone.on_pages_like(/package\/detail\/[0-9]*$/) do | page |  
@@ -25,7 +21,8 @@ namespace :db do
         puts page.url
 
         next if name == ""
-        
+        next if App.where(:name => name).exists?
+
         icon = doc.css('.icon img')[0]["src"]
 
         puts icon
@@ -75,7 +72,7 @@ namespace :db do
         #doc.css('.content .inner p').each{|tag| desc +=tag}
         
         puts desc
-
+          
         @app =  App.create!(name: name,
                             icon: icon,
                             ver: ver,            

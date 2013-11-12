@@ -1,7 +1,7 @@
 class CreateApps < ActiveRecord::Migration
   def change
     create_table :apps do |t|
-      t.string :name,    :null => false, :default => "", unique: true
+      t.string :name,    :null => false, :default => "", unique: true 
       t.string :icon,     :default => ""
       t.string :ver,    :default => ""
       t.integer :dtimes  , :default => 0
