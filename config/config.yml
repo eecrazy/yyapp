@@ -33,11 +33,11 @@ test:
 production:
   <<: *defaults
   domain: "http://yyapp.herokuapp.com/"
-  github_token: ""
-  github_secret: ""
+  github_token: "9e59d35a6253c1d7c75b"
+  github_secret: "21c64dcd69946c4753528eb5d57f42abb925b72f"
   google_token: ""
   google_secret: ""
   weibo_token: ""
   weibo_secret: ""
-  douban_token: ""
-  douban_secret: ""
+  douban_token: "097f45305775412c1c7dcf91065fc384"
+  douban_secret: "0855f57038bfae3e"
