@@ -20,6 +20,7 @@ Yyapp::Application.routes.draw do
 
   resources :users
 
+  delete "user/auth/:provider/unbind" => "users#auth_unbind", as: 'unbind_account'
   get 'tags/:tag', to: 'apps#index', as: :tag
   
   resources :apps do
