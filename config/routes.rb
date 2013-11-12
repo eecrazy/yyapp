@@ -3,7 +3,7 @@ Yyapp::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'main_page#index'
+  root 'main_page#home'
   match '/sign', to: 'main_page#sign', via:'get'
 
   devise_for :users ,:path => "users", :controllers => {
