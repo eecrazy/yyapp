@@ -28,7 +28,7 @@ gem 'nokogiri'
 ## local
 #-------------------------------------------
 group :development, :test do
-  gem 'sqlite3', '1.3.7'
+  gem 'sqlite3'
   gem 'rspec-rails', '2.13.1'
   gem 'faker', '1.1.2'
   gem "pry-rails", "0.3.2"
@@ -47,7 +47,7 @@ end
 
 
 group :production do
-  gem 'pg', '0.15.1'
+  gem 'pg'
   gem 'rails_12factor'
 end
 #-------------------------------------------
