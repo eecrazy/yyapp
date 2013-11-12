@@ -6,7 +6,7 @@ defaults: &defaults
   admin_emails:
     - "cnmpp902@gmail.com"
     - "elizhongyang@163.com"
-  email_sender: 'yyAPP-noreply@163.com'
+  email_sender: 'yyapp-default@126.com'
   email_password: '123456'
   # here are some token and secret for omniauth
   # github and douban  can find easy
@@ -18,7 +18,7 @@ defaults: &defaults
   douban_secret: ""
   weibo_token: ""
   weibo_secret: ""
-  google_token: ".apps.googleusercontent.com"
+  google_token: ""
   google_secret: ""
   google_js_api_key: ""
   google_custom_search_id: ""
@@ -32,7 +32,7 @@ test:
 
 production:
   <<: *defaults
-  domain: ""
+  domain: "http://yyapp.herokuapp.com/"
   github_token: ""
   github_secret: ""
   google_token: ""
