@@ -2,7 +2,7 @@
 + An multi-platform apps recommendation system.
 + For Software Design 2 lesson.
 + Website: http://yyapp.herokuapp.com
-  (Because of some factors, the deployed website is not newest version)
+  (Because of some factors, the deployed website is not the newest version)
 * DONE Prototype Development
   CLOSED: [2013-11-16 Sat 23:00]
   - State "DONE"       from "TODO"       [2013-11-16 Sat 23:00] \\
