@@ -6,6 +6,7 @@
 * DONE Prototype Development
   CLOSED: [2013-11-16 Sat 23:00]
   - State "DONE"       from "TODO"       [2013-11-16 Sat 23:00] \\
+
     finish basic function:
     1. User available, include register , login, edit user info and so on 
     2. Manage apps available, include show ,edit ,delete app info , list them in certain order.
