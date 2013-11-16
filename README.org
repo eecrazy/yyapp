@@ -1,6 +1,6 @@
 * Introduce
 + An multi-platform apps recommendation system.
-+ Design for Software Design 2 lesson.
++ For Software Design 2 lesson.
 + Website: http://yyapp.herokuapp.com
   (Because of some factors, the deployed website is not newest version)
 * DONE Prototype Development
