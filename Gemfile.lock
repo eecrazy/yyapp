@@ -1,5 +1,5 @@
 GEM
-  remote: https://rubygems.org/
+  remote: http://ruby.taobao.org/
   specs:
     actionmailer (4.0.0)
       actionpack (= 4.0.0)
@@ -39,6 +39,7 @@ GEM
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
       json (>= 1.7)
+    chinese_pinyin (0.4.2)
     coderay (1.1.0)
     coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
@@ -153,6 +154,15 @@ GEM
     rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    redis (2.1.1)
+    redis-namespace (1.0.4)
+      redis (< 3.0.0)
+    redis-search (0.6.3)
+      chinese_pinyin (>= 0.3.0)
+      redis (>= 2.1.1)
+      redis-namespace (~> 1.0.2)
+      rmmseg-cpp-huacnlee (>= 0.2.8)
+    rmmseg-cpp-huacnlee (0.2.9)
     robotex (1.0.0)
     rspec-core (2.13.1)
     rspec-expectations (2.13.0)
@@ -219,6 +229,7 @@ DEPENDENCIES
   bootstrap-sass (~> 3.0.0.0)
   cancan (= 1.6.10)
   carrierwave
+  chinese_pinyin (~> 0.4.1)
   coffee-rails (= 4.0.0)
   devise (= 3.0.3)
   faker (= 1.1.2)
@@ -237,6 +248,10 @@ DEPENDENCIES
   pry-rails (= 0.3.2)
   rails (= 4.0.0)
   rails_12factor
+  redis (= 2.1.1)
+  redis-namespace (~> 1.0.2)
+  redis-search (~> 0.6.3)
+  rmmseg-cpp-huacnlee (~> 0.2.9)
   rspec-rails (= 2.13.1)
   sass-rails (= 4.0.0)
   sdoc

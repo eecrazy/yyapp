@@ -1,7 +1,9 @@
 class MainPagesController < ApplicationController
   def home
     if user_signed_in?
-      @apps = App.limit(5).order("updated_at desc")
+      @app1 = App.order("uptime desc").limit(6)
+      @app2 = App.order("dtimes desc").limit(6)
+      @app3 = App.order("rate desc").limit(6)
     else
       render 'sign'
     end    

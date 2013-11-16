@@ -2,7 +2,7 @@
 class AppsController < ApplicationController
   authorize_resource :only => [:new,:edit,:create,:update,:destroy]
   before_action :set_app, only: [:show, :edit, :update, :destroy]
-
+  
   def new
     @app = App.new
     @img = Image.new
@@ -23,8 +23,8 @@ class AppsController < ApplicationController
     @comment = Comment.new
   end
 
-  def index
-    if params[:tag]  
+  def index    
+    if params[:tag]
       @apps = App.tagged_with(params[:tag]).paginate(page: params[:page], :per_page => 15)
     else
       @apps = App.paginate(page: params[:page], :per_page => 15)

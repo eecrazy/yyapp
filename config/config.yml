@@ -3,6 +3,7 @@ defaults: &defaults
   app_name: "yyAPP"
   foot_html: "&copy; yyAPP."
   domain: "http://127.0.0.1:3000"
+  host: "127.0.0.1"
   admin_emails:
     - "cnmpp902@gmail.com"
     - "elizhongyang@163.com"

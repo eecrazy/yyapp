@@ -26,19 +26,20 @@ $navbar-border-radius: 0px;
 @import "bootstrap";
 
 form.simple_form {
+  max-width: 600px;
   input{width: 300px };
   input#user_login,
   input#user_username,
   input#user_password_confirmation,
-  input#user_password { width: 150px; }
-  input#user_email { width:200px; }
+  input#user_password { width: 250px; }
+  input#user_email { width:300px; }
   #user_remember_me{
       width: 15px;
-      margin-left: 150px;
+     
   }
   input.btn{
       width: 100px;
-      margin-left: 150px;
+
   }
 }
 form label{
@@ -47,8 +48,8 @@ width: 150px;
 
 
 .container{
-margin-left: 100px;
-margin-right: 100px;
+margin-left: 10%;
+margin-right: 10%;
 }
 
 .dropdown-toggle img
@@ -58,4 +59,9 @@ margin-right: 100px;
   padding-bottom: 0px;
   margin-top: 0px;
   margin-bottom: 0px;
+}
+.smallimg img
+{
+  margin-right:15px;
+  width:18%;
 }

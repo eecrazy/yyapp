@@ -1,4 +1,12 @@
 <% provide(:title, @app.name) %>
+<div class = "pull-right">
+
+    <% if can?(:modify, App)%>
+      <%= link_to '编辑', edit_app_path(@app), class:"btn btn-default"%>
+      <%= link_to '删除', @app, method: :delete, data: { confirm: '确认删除?' }, class:"btn btn-default" %>
+    <% end %>
+</div>
+
 <h2><%= @app.name %></h2>
 <%= image_tag(@app.icon) %>
 
@@ -7,17 +15,17 @@
 <p>大小:<%= @app.fsize %></p>
 <p>环境:<%= @app.env %></p>
 <p>作者:<%= link_to @app.tags[-3].name, tag_path(@app.tags[-3].name)%></p>
-<p>分类:<%= link_to @app.tags[-1].name, tag_path(@app.tags[-1].name)%> > <%= link_to @app.tags[-2].name, tag_path(@app.tags[-2].name)%></p>
+<p>分类:<%= link_to @app.tags[-2].name, tag_path(@app.tags[-2].name)%> > <%= link_to @app.tags[-1].name, tag_path(@app.tags[-1].name)%></p>
 <p>下载次数:<%= @app.dtimes %></p>
 <p>最后更新时间:<%= @app.uptime %></p>
 <p>评分:<%= @app.rate %></p>
 
 <%= raw(@app.desc) %>
-
+<div class="smallimg">
 <% @app.images.each do |image| %>
     <%= image_tag image.file %>
 <% end %>
-
+</div>
 <p>Tags:</p>
 <p class = "ptag"><%= raw  @app.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join('  ') %></p>
 
@@ -32,9 +40,8 @@
 <% if can? :create, @comment %>
  <%= simple_form_for [@app, @comment] do |f| %>
     <%= f.input :comment, input_html: { rows: 5 }%>
-    <br/>
-    <%= f.button :submit, "Add Comment", class: 'btn-primary' %>
+	</br>
+    <%= f.button :submit, "评论 ", class: "btn btn-primary ", role:"button" %>
   <% end %>
 <% end %>
-
 

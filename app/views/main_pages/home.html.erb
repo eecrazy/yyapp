@@ -1,13 +1,36 @@
 <div class="col-md-9">
   <div class="jumbotron">
     <h2>最新app</h2>
-    <% @apps.each do |app| %>
+    <% @app1.each do |app| %>
       <h3><%= image_tag(app.icon) %> <%= link_to app.name, app %></h3>
+      <p><%= app.uptime %>,<%= app.dtimes %>,<%= app.rate %></p>
     </hr>
     <% end %>
   </div>
+  
+  <div class="jumbotron">
+    <h2>最热app</h2>
+    <% @app2.each do |app| %>
+      <h3><%= image_tag(app.icon) %> <%= link_to app.name, app %></h3>
+      <p><%= app.uptime %>,<%= app.dtimes %>,<%= app.rate %></p>
+    </hr>
+    <% end %>
+  </div>
+
+  <div class="jumbotron">
+    <h2>最赞app</h2>
+    <% @app3.each do |app| %>
+      <h3><%= image_tag(app.icon) %> <%= link_to app.name, app %></h3>
+      <p><%= app.uptime %>,<%= app.dtimes %>,<%= app.rate %></p>
+    </hr>
+    <% end %>
+  </div>
+
 </div>
 <div class="col-md-3">
+  <div id="tag_cloud">
+    <% tag_cloud App.tag_counts, %w{s m l} do |tag, css_class| %>
+      <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+    <% end %>
+  </div>
 </div>
-
-
