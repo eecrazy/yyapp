@@ -1,0 +1,24 @@
+* Introduce
++ An multi-platform apps recommendation system.
++ Design for Software Design 2 lesson.
++ Website: http://yyapp.herokuapp.com
+  (Because of some factors, the deployed website is not newest version)
+* DONE Prototype Development
+  CLOSED: [2013-11-16 Sat 23:00]
+  - State "DONE"       from "TODO"       [2013-11-16 Sat 23:00] \\
+    finish basic function:
+    1. User available, include register , login, edit user info and so on 
+    2. Manage apps available, include show ,edit ,delete app info , list them in certain order.
+    3. Craw app's info from website, and store them in my database
+    4. Craw app's comment from website, and store them in my database
+    5. App classfication aviliable
+    6. Comment available
+    7. Seach available
+    8. Deploy it on Heroku.
+
+* TODO The second iteration
+ - [ ] Improve Seach function 
+ - [ ] Beautify GUI
+ - [ ] Realize App recommendation function
+ - [ ] Support more platform
+ 
