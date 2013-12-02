@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   extend OmniauthCallbacks
   has_many :authorizations
   has_many :comments
+  has_many :likes
+  
   validates :username, presence: true, length: { maximum: 30 },:uniqueness => true
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,

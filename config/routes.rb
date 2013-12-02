@@ -5,6 +5,8 @@ Yyapp::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'main_pages#home'
 
+  match '/like', to: 'likes#toggle', via: 'post'
+  
   match '/sign', to: 'main_pages#sign', via:'get'
 
   match '/search', to: 'searchs#index', via:'get'

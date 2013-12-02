@@ -1,4 +1,5 @@
 <% provide(:title, @app.name) %>
+<div id = "app-id"><%= @app.id %></div>
 <div class = "pull-right">
 
     <% if can?(:modify, App)%>
@@ -28,6 +29,11 @@
 </div>
 <p>Tags:</p>
 <p class = "ptag"><%= raw  @app.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join('  ') %></p>
+<hr/>
+<div id = "is-like"><%= is_like?(@app)%></div>
+<a id = "likeable" ></a>
+<p id = "like-val">已有<span><%= @app.likes.count %></span>人收藏该文章</p>
+
 
 <hr/>
 <% if @comments.try(:any?) %>
@@ -36,6 +42,8 @@
   </ul>
 <% end %>
 <%= will_paginate @comments%>
+
+
 
 <% if can? :create, @comment %>
  <%= simple_form_for [@app, @comment] do |f| %>

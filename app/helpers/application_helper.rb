@@ -36,5 +36,16 @@ module ApplicationHelper
     end
   end
 
-
+   def is_like?(entity)
+    if signed_in?
+      if current_user.likes.where(:app_id => entity.id).count >0
+        1
+      else
+        0
+      end
+    else
+      2
+    end
+  end
+  
 end
