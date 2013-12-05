@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131202134854) do
+ActiveRecord::Schema.define(version: 20131202225501) do
 
   create_table "apps", force: true do |t|
     t.string   "name",       default: "",  null: false
@@ -44,6 +44,16 @@ ActiveRecord::Schema.define(version: 20131202134854) do
   end
 
   add_index "comments", ["created_at"], name: "index_comments_on_created_at"
+
+  create_table "hates", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "app_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "hates", ["app_id"], name: "index_hates_on_app_id"
+  add_index "hates", ["user_id"], name: "index_hates_on_user_id"
 
   create_table "images", force: true do |t|
     t.string   "file"

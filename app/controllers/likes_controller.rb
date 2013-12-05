@@ -12,8 +12,7 @@ class LikesController < ApplicationController
       @like = Like.where(:user =>current_user, :app =>@app).first
       @like.destroy
     end
-    count = @app.likes.count
-    render :text => count
+
   end
 
   

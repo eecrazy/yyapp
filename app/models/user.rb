@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_many :authorizations
   has_many :comments
   has_many :likes
+  has_many :hates
   
   validates :username, presence: true, length: { maximum: 30 },:uniqueness => true
   # Include default devise modules. Others available are:
@@ -54,10 +55,31 @@ class User < ActiveRecord::Base
   end
   # the function can bind a omniauth to an exist user
   # but it not safe in some situation.
-   def bind_service(response)
+  def bind_service(response)
     provider = response["provider"]
     uid = response["uid"].to_s
     authorizations.create(:provider => provider , :uid => uid )
-   end
+  end
 
+  def similarity_with(user)
+    # Array#& is the set intersection operator
+    agreements = (self.likes.select(:app_id) & user.likes.select(:app_id)).size
+    agreements += (self.hates.select(:app_id) & user.hates.select(:app_id)).size
+    disagreements = (self.likes.select(:app_id) & user.hates.select(:app_id)).size
+    disagreements += (self.hates.select(:app_id) & user.likes.select(:app_id)).size
+
+    # Array#| is the set union operator
+    total = (self.likes.select(:app_id) + self.hates.select(:app_id)) | (user.likes.select(:app_id) + user.hates.select(:app_id))
+    return (agreements - disagreements) / total.size.to_f
+  end
+
+  def prediction_for(item)
+    hive_mind_sum = 0.0
+    rated_by = item.likes.size + item.hates.size
+
+    item.likes.each { |u| hive_mind_sum += self.similarity_with(u.user) }
+    item.hates.each { |u| hive_mind_sum -= self.similarity_with(u.user) }
+    return hive_mind_sum / rated_by.to_f
+  end
+  
 end

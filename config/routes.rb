@@ -6,7 +6,7 @@ Yyapp::Application.routes.draw do
   root 'main_pages#home'
 
   match '/like', to: 'likes#toggle', via: 'post'
-  
+  match '/hate', to: 'hates#toggle', via: 'post'
   match '/sign', to: 'main_pages#sign', via:'get'
 
   match '/search', to: 'searchs#index', via:'get'
@@ -28,10 +28,12 @@ Yyapp::Application.routes.draw do
   delete "user/auth/:provider/unbind" => "users#auth_unbind", as: 'unbind_account'
   get 'tags/:tag', to: 'apps#index', as: :tag
   
+  match '/tag_it', to: 'apps#tag_it',  via: "post"
   resources :apps do
     resources :comments , :only => [:create]
     resources :images , :only => [:create,:destroy]
   end
+
   
   resources :images
   

@@ -8,6 +8,7 @@ class App < ActiveRecord::Base
   has_many :taggings
   has_many :tags, through: :taggings
   has_many :likes
+  has_many :hates
   
   validates :name, :uniqueness => true
  
@@ -30,12 +31,14 @@ class App < ActiveRecord::Base
       Tag.where(name: n.strip).first_or_create!
     end
   end
+  
   def is_game?
     self.tags[-1].name =="游戏"
   end
   def is_soft?
     self.tags[-1].name =="软件"
   end
+  
   redis_search_index(:title_field => :name,
                      :score_field => :dtimes,
                      :prefix_index_enable => true,

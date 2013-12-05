@@ -27,13 +27,34 @@
     <%= image_tag image.file %>
 <% end %>
 </div>
+<hr/>
 <p>Tags:</p>
 <p class = "ptag"><%= raw  @app.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join('  ') %></p>
+<a id = "addtag"> add tag!</a>
+<div class = "tag-form">
+  <input type="text" name="tag" class = "c-tag"/>
+  <input type="submit" value="OK" class = "sb-tag" />
+</div>
+<br/>
 <hr/>
+
 <div id = "is-like"><%= is_like?(@app)%></div>
 <a id = "likeable" ></a>
-<p id = "like-val">已有<span><%= @app.likes.count %></span>人收藏该文章</p>
+<div id = "is-hate"><%= is_hate?(@app)%></div>
+<a id = "hateable" ></a>
+<br/>
+<br/>
 
+<hr/>
+<h4>与它相关的APP</h4>
+<% @recommend.each do |r| %>
+  <div class="applist">
+    <%= image_tag(r.icon) %>       </br>
+    <%= link_to r.name, r %>
+  </div>
+  </hr>
+<% end %>
+<div class = "break-float"></div>
 
 <hr/>
 <% if @comments.try(:any?) %>
@@ -42,8 +63,6 @@
   </ul>
 <% end %>
 <%= will_paginate @comments%>
-
-
 
 <% if can? :create, @comment %>
  <%= simple_form_for [@app, @comment] do |f| %>

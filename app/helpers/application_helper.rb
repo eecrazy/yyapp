@@ -36,7 +36,7 @@ module ApplicationHelper
     end
   end
 
-   def is_like?(entity)
+  def is_like?(entity)
     if signed_in?
       if current_user.likes.where(:app_id => entity.id).count >0
         1
@@ -47,5 +47,18 @@ module ApplicationHelper
       2
     end
   end
-  
+
+  def is_hate?(entity)
+    if signed_in?
+      if current_user.hates.where(:app_id => entity.id).count >0
+        1
+      else
+        0
+      end
+    else
+      2
+    end
+  end
+
+   
 end

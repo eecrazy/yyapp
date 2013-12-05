@@ -4,9 +4,13 @@
 
 <% @apps.each do |app| %>  
     <p><%= image_tag(app['icon']) %></p>
-    <h2><%= link_to app['name'] ,"/apps/#{app['id']}" %></h2>
+    <p><%= link_to app['name'] ,"/apps/#{app['id']}" %></p>
     <p> 下载次数:<%= app['dtimes'] %></p>
     <p> 更新时间:<%= app['uptime'] %></p>
     <p> 评分:<%= app['rate'] %></p>
   </hr>
 <% end %>
+<hr/>
+
+
+
