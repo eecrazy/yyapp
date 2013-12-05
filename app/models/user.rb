@@ -67,7 +67,6 @@ class User < ActiveRecord::Base
     agreements += (self.hates.select(:app_id) & user.hates.select(:app_id)).size
     disagreements = (self.likes.select(:app_id) & user.hates.select(:app_id)).size
     disagreements += (self.hates.select(:app_id) & user.likes.select(:app_id)).size
-
     # Array#| is the set union operator
     total = (self.likes.select(:app_id) + self.hates.select(:app_id)) | (user.likes.select(:app_id) + user.hates.select(:app_id))
     return (agreements - disagreements) / total.size.to_f
@@ -76,10 +75,17 @@ class User < ActiveRecord::Base
   def prediction_for(item)
     hive_mind_sum = 0.0
     rated_by = item.likes.size + item.hates.size
-
+    if rated_by ==0
+      rated_by = 1
+    end
     item.likes.each { |u| hive_mind_sum += self.similarity_with(u.user) }
     item.hates.each { |u| hive_mind_sum -= self.similarity_with(u.user) }
     return hive_mind_sum / rated_by.to_f
+  end
+
+  def has_app_id
+    all = self.likes.select(:app_id) | self.hates.select(:app_id)
+    all.collect{|a| a.app_id}
   end
   
 end

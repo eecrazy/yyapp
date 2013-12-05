@@ -5,13 +5,15 @@ tc =0
 $ ->
   app_id = $("#app-id").text()
   $('.tag-form').css("display","none")
-  $("#addtag").html("<img src=\"/assets/add3.png\">")
+  $("#addtag").html("<img src=\"/assets/add4.png\">")
   $("#addtag").click ->
     if tc ==0
       $('.tag-form').css("display","block")
+      $("#addtag").html("<img src=\"/assets/add5.png\">")
       tc = 1
     else if tc == 1
       $('.tag-form').css("display","none")
+      $("#addtag").html("<img src=\"/assets/add4.png\">")
       tc =0
   $(".sb-tag").click ->
     tag_name = $(".c-tag").val().trim()
