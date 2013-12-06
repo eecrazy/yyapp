@@ -21,8 +21,8 @@ namespace :db do
         puts name
         puts page.url
 
-        next if name == ""
-        next if App.where(:name => name).exists?
+        #next if name == ""
+        #next if App.where(:name => name).exists?
 
         icon = doc.css('.icon img')[0]["src"]
 
