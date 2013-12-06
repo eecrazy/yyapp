@@ -3,7 +3,7 @@ source 'http://ruby.taobao.org/'
 ruby '2.0.0'
 gem 'rails', '4.0.0'
 
-#gem 'railties', '4.0.0'
+gem 'railties', '4.0.0'
 #-------------------------------------------
 ## basic
 #-------------------------------------------
@@ -67,7 +67,7 @@ gem 'will_paginate', '3.0.4'
 gem 'sass-rails', '4.0.0'
 gem "bootstrap-sass", "~> 3.0.0.0"
 gem 'jquery-rails'
-gem 'jquery-ui-rails'
+#gem 'jquery-ui-rails'
 gem 'coffee-rails', '4.0.0'
 gem 'simple_form'
 

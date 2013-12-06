@@ -23,8 +23,9 @@ namespace :db do
           puts name
 
           next if name == ""
-          next if App.where(:name => name).exists?
-
+          puts "?"          
+          next if App.where(:name => name).size > 0
+          
           icon = doc.css('.icon img')[0]["src"]
 
           puts icon
