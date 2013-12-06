@@ -5,8 +5,8 @@ namespace :db do
     require 'anemone'
     require 'nokogiri'
     #domain = "http://www.nduoa.com/package/detail/21035"
-    #domain = "http://www.nduoa.com/cat0?type=2"
-    domain = "http://www.nduoa.com/package/detail/7267"
+    domain = "http://www.nduoa.com/cat0?type=2"
+    #domain = "http://www.nduoa.com/package/detail/7267"
     @duser  =  User.first
     Anemone.crawl(domain , :delay => 3) do |anemone|
       #anemone.on_every_page do |page|
