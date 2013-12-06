@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 class App < ActiveRecord::Base
-  include Redis::Search
+  #include Redis::Search
   #mount_uploader :main_image, MainImageUploader
   default_scope -> { order('created_at DESC') }
   has_many :comments
@@ -39,11 +39,18 @@ class App < ActiveRecord::Base
     self.tags[-1].name =="软件"
   end
   
-  redis_search_index(:title_field => :name,
-                     :score_field => :dtimes,
-                     :prefix_index_enable => true,
-                     :condition_fields => [:is_game?, :is_soft?],
-                     :ext_fields => [:name,:icon,:uptime,:rate,:dtimes])
+  # redis_search_index(:title_field => :name,
+  #                    :score_field => :dtimes,
+  #                    :prefix_index_enable => true,
+  #                    :condition_fields => [:is_game?, :is_soft?],
+  #                    :ext_fields => [:name,:icon,:uptime,:rate,:dtimes])
 
-
+  def self.search(search)
+    if search
+      find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+    else
+      find(:all)
+    end
+  end
+  
 end
