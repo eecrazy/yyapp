@@ -11,6 +11,7 @@ namespace :db do
     Anemone.crawl(domain , :delay => 3) do |anemone|
       anemone.on_every_page do |page|
         #anemone.on_pages_like(/package\/detail\/[0-9]*$/) do | page |
+        puts page.url
         if page.url.to_s.include? "package"
           doc = Nokogiri::HTML(open(page.url))      
           # app名称
@@ -20,7 +21,6 @@ namespace :db do
           end
 
           puts name
-          puts page.url
 
           next if name == ""
           next if App.where(:name => name).exists?
