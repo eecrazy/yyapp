@@ -86,7 +86,7 @@ namespace :db do
                             tag_list: "#{c1},#{ctag},#{author}"
                             )
 
-        
+        puts "----------finish1x"
         doc.css('ul.shotbox li img').each do |tag|
           @app.images.create!(file: tag["src"])
         end
@@ -95,7 +95,7 @@ namespace :db do
           comment = @app.comments.create!(comment: tag.text,
                                           user_id: @duser.id)
         end
-        puts "----------finish"
+        puts "----------finish2x"
         
       end  
     end
