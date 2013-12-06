@@ -4,7 +4,7 @@
 <% end %>
 <h1 align="center">APP list</h1>
 <hr/>
-<div align ="center">
+
   <% @apps.each do |app| %>
     <div class="appshow1">
       <%= link_to image_tag(app.icon),app %>
@@ -13,6 +13,6 @@
       <p class = "star-rate"><%= raw(ratestars(app.rate)) %></p>
     </div>
   <% end %>
-
+<div align="center">
   <%= will_paginate @apps %>  
 </div>
