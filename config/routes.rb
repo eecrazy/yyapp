@@ -8,7 +8,7 @@ Yyapp::Application.routes.draw do
   match '/like', to: 'likes#toggle', via: 'post'
   match '/hate', to: 'hates#toggle', via: 'post'
   match '/sign', to: 'main_pages#sign', via:'get'
-
+  match '/guess', to: 'main_pages#guess', via:'get'
   match '/search', to: 'searchs#index', via:'get'
   
   devise_for :users ,:path => "users", :controllers => {

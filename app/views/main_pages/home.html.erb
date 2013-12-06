@@ -28,11 +28,8 @@
 
 </div>
 <div class="col-md-3">
-  <div id="tag_cloud">
-    <% tag_cloud App.tag_counts, %w{s m l} do |tag, css_class| %>
-      <%= link_to tag.name, tag_path(tag.name), class: css_class %>
-    <% end %>
-  </div>
+  <a href="/guess" class = "guess-like"><img src="/assets/guess2.png"></a>
+  <hr/>
   <div class="jumbotron">
     <h2>推荐app</h2>
     <% @recommend.each do |app| %>

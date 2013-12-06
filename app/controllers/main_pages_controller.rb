@@ -13,10 +13,21 @@ class MainPagesController < ApplicationController
       items = items.sort_by{|k,v| -v}
       re = items.collect { |k, v| k }
       @recommend = re[0..5]
-      #@recommend = []
+      
     else
       render 'sign'
     end    
+  end
+
+  def guess
+    indexs = rand_n(20,App.all.size) - current_user.has_app_id
+    items = Hash.new(0)
+    indexs.each do |i|
+      a = App.find(i)
+      items.store(a,current_user.prediction_for(a))
+    end
+    maxitem = items.max_by{|k,v| v}
+    @app = maxitem.first
   end
   
   def sign
@@ -27,8 +38,11 @@ class MainPagesController < ApplicationController
   def rand_n(n, max)
     randoms = Set.new
     loop do
-        randoms << rand(max)
-        return randoms.to_a if randoms.size >= n
+      r = rand(max)
+      if r >0
+        randoms << r
+      end
+      return randoms.to_a if randoms.size >= n
     end
   end
   

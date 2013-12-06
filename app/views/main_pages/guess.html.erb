@@ -1,0 +1,19 @@
+<% provide(:title, "猜你喜欢") %>
+<h2>猜你喜欢</h2>
+<div class="col-md-6">
+  <div class="jumbotron guess-part">
+    <div id = "app-id"><%= @app.id %></div>
+    <%= link_to image_tag(@app.icon) , @app %>
+    <h2><%= link_to @app.name , @app %></h2>
+    <p>下载次数:<%= @app.dtimes %></p>
+    <p>最后更新时间:<%= @app.uptime %></p>
+    <p>评分:<%= @app.rate %></p>
+    <div id = "is-like"><%= is_like?(@app)%></div>
+    <a id = "likeable" ></a>
+    <div id = "is-hate"><%= is_hate?(@app)%></div>
+    <a id = "hateable" ></a>
+  </div>
+</div>
+<div class="col-md-6">
+</div>
+

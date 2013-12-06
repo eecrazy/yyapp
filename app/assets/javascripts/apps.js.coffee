@@ -4,6 +4,7 @@
 tc =0
 $ ->
   app_id = $("#app-id").text()
+  urlnow = window.location.pathname
   $('.tag-form').css("display","none")
   $("#addtag").html("<img src=\"/assets/add4.png\">")
   $("#addtag").click ->
@@ -36,6 +37,8 @@ $ ->
       url : "/like"
       type : "POST"
       data: {"cho" : $("#is-like").text(), "app_id" : app_id}
+    if urlnow == "/guess"
+      window.location.href= "/guess"
     if $("#is-like").text() == "0"
       $("#is-like").text(1)
       $("#likeable").html("<img src=\"/assets/unlike.png\"><span>Cancel</span>") 
@@ -62,4 +65,5 @@ $ ->
     else if $("#is-hate").text() == "1"
       $("#is-hate").text(0)
       $("#hateable").html("<img src=\"/assets/hate.png\"><span>Hate It</span>")
-
+    if urlnow == "/guess"
+      window.location.href= "/guess"
