@@ -1,19 +1,28 @@
 <% provide(:title, "猜你喜欢") %>
 <h2>猜你喜欢</h2>
-<div class="col-md-6">
-  <div class="jumbotron guess-part">
-    <div id = "app-id"><%= @app.id %></div>
-    <%= link_to image_tag(@app.icon) , @app %>
-    <h2><%= link_to @app.name , @app %></h2>
-    <p>下载次数:<%= @app.dtimes %></p>
-    <p>最后更新时间:<%= @app.uptime %></p>
-    <p>评分:<%= @app.rate %></p>
-    <div id = "is-like"><%= is_like?(@app)%></div>
-    <a id = "likeable" ></a>
-    <div id = "is-hate"><%= is_hate?(@app)%></div>
-    <a id = "hateable" ></a>
-  </div>
+<div class="appshow2">
+  <div id = "app-id"><%= @app.id %></div>
+  <%= link_to image_tag(@app.icon) , @app %>
+  <p class = "show-title"><%= link_to @app.name , @app %></p>
+  <p>下载次数:<%= @app.dtimes %></p>
+  <p>最后更新时间:<%= @app.uptime %></p>
+  <p class = "star-rate">评分:<%= raw(ratestars( @app.rate )) %></p>  
 </div>
-<div class="col-md-6">
+
+<div class = "guess-button">
+  <p>Tags:</p>
+  <p class = "ptag"><%= raw  @app.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join('  ') %></p>
+  
+  <a id = "addtag"> add tag!</a>
+  <div class = "tag-form">
+    <input type="text" name="tag" class = "c-tag"/>
+    <input type="submit" value="OK" class = "sb-tag" />
+  </div>
+  <br/>
+  <hr/>
+  <div id = "is-like"><%= is_like?(@app)%></div>
+  <a id = "likeable" ></a>
+  <div id = "is-hate"><%= is_hate?(@app)%></div>
+  <a id = "hateable" ></a>
 </div>
 

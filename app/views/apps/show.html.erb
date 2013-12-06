@@ -1,16 +1,14 @@
 <% provide(:title, @app.name) %>
 <div id = "app-id"><%= @app.id %></div>
-<div class = "pull-right">
 
+<div class = "content">
+<div class = "pull-right">
     <% if can?(:modify, App)%>
       <%= link_to '编辑', edit_app_path(@app), class:"btn btn-default"%>
-      <%= link_to '删除', @app, method: :delete, data: { confirm: '确认删除?' }, class:"btn btn-default" %>
+      <%= link_to '删除', @app, method: :delete, data: { confirm: '确认删除?' }, class:"btn btn-default" %>      
     <% end %>
 </div>
-
-<h2><%= @app.name %></h2>
-<%= image_tag(@app.icon) %>
-
+<p class = "app-head"><%= image_tag(@app.icon)%> <%= @app.name %></p>
 <hr/>
 <p>版本:<%= @app.ver %></p>
 <p>大小:<%= @app.fsize %></p>
@@ -19,15 +17,18 @@
 <p>分类:<%= link_to @app.tags[-2].name, tag_path(@app.tags[-2].name)%> > <%= link_to @app.tags[-1].name, tag_path(@app.tags[-1].name)%></p>
 <p>下载次数:<%= @app.dtimes %></p>
 <p>最后更新时间:<%= @app.uptime %></p>
-<p>评分:<%= @app.rate %></p>
-
+<p>评分:<span class = "star-rate"><%= raw(ratestars(@app.rate)) %><span></p>
+</div>
+<div class = "content">
+<h4>内容简介</h4>
 <%= raw(@app.desc) %>
 <div class="smallimg">
 <% @app.images.each do |image| %>
     <%= image_tag image.file %>
 <% end %>
 </div>
-<hr/>
+</div>
+<div class = "content">
 <p>Tags:</p>
 <p class = "ptag"><%= raw  @app.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join('  ') %></p>
 <a id = "addtag"> add tag!</a>
@@ -44,19 +45,20 @@
 <a id = "hateable" ></a>
 <br/>
 <br/>
-
 <hr/>
+
 <h4>与它相关的APP</h4>
+<br/>
 <% @recommend.each do |r| %>
   <div class="applist">
-    <%= image_tag(r.icon) %>       </br>
-    <%= link_to r.name, r %>
+   <p> <%= link_to image_tag(r.icon) ,r  %> </p>
+   <p><%= link_to r.name, r %></p>
   </div>
   </hr>
 <% end %>
 <div class = "break-float"></div>
-
-<hr/>
+</div>
+<div class = "content">
 <% if @comments.try(:any?) %>
   <ul class="comment-item">
     <%= render @comments %>
@@ -71,4 +73,4 @@
     <%= f.button :submit, "评论 ", class: "btn btn-primary ", role:"button" %>
   <% end %>
 <% end %>
-
+</div>

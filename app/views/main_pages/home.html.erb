@@ -1,42 +1,51 @@
-<div class="col-md-9">
-  <div class="jumbotron">
+<div class="col-md-8">
+  <div class="list-block">
     <h2>最新app</h2>
     <% @app1.each do |app| %>
-      <h3><%= image_tag(app.icon) %> <%= link_to app.name, app %></h3>
-      <p><%= app.uptime %>,<%= app.dtimes %>,<%= app.rate %></p>
-    </hr>
+      <div class="appshow1">
+	<%= link_to image_tag(app.icon),app %>
+	<h3><%= link_to app.name, app %></h3>
+	<p><%= app.dtimes %>次下载</p>
+	<p class = "star-rate"><%= raw(ratestars(app.rate)) %></p>
+      </div>
     <% end %>
   </div>
-  
-  <div class="jumbotron">
+  <div class="list-block">
     <h2>最热app</h2>
     <% @app2.each do |app| %>
-      <h3><%= image_tag(app.icon) %> <%= link_to app.name, app %></h3>
-      <p><%= app.uptime %>,<%= app.dtimes %>,<%= app.rate %></p>
-    </hr>
+      <div class="appshow1">
+	<%= link_to image_tag(app.icon),app %>
+	<h3><%= link_to app.name, app %></h3>
+	<p><%= app.dtimes %>次下载</p>		
+	<p class = "star-rate"><%= raw(ratestars(app.rate)) %></p>
+      </div>
     <% end %>
   </div>
-
-  <div class="jumbotron">
-    <h2>最赞app</h2>
+  <div class="list-block">
+    <h2 >最赞app</h2>
     <% @app3.each do |app| %>
-      <h3><%= image_tag(app.icon) %> <%= link_to app.name, app %></h3>
-      <p><%= app.uptime %>,<%= app.dtimes %>,<%= app.rate %></p>
-    </hr>
+      <div class="appshow1">
+	<%= link_to image_tag(app.icon),app %>
+	<h3> <%= link_to app.name, app %></h3>
+	<p><%= app.dtimes %>次下载</p>
+	<p class = "star-rate"><%= raw(ratestars(app.rate)) %></p>
+      </div>
     <% end %>
   </div>
 
 </div>
-<div class="col-md-3">
+<div class="col-md-4">
   <a href="/guess" class = "guess-like"><img src="/assets/guess2.png"></a>
   <hr/>
-  <div class="jumbotron">
+  <div class="list-block">
     <h2>推荐app</h2>
     <% @recommend.each do |app| %>
-      <h3><%= image_tag(app.icon) %> <%= link_to app.name, app %></h3>
-      <p><%= app.uptime %>,<%= app.dtimes %>,<%= app.rate %></p>
-    </hr>
+      <div class="appshow1">
+	<%= link_to image_tag(app.icon),app %>
+	<h3><%= link_to app.name, app %></h3>
+	<p><%= app.dtimes %>次下载</p>
+	<p class = "star-rate"><%= raw(ratestars(app.rate)) %></p>
+      </div>
     <% end %>
   </div>
-
 </div>

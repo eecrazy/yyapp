@@ -1,14 +1,15 @@
 <% provide(:title, "APP搜索结果") %>
-<h1>search APP</h1>
+<h1 align="center">search results</h1>
 <hr/>
 
 <% @apps.each do |app| %>  
-    <p><%= image_tag(app['icon']) %></p>
-    <p><%= link_to app['name'] ,"/apps/#{app['id']}" %></p>
+  <div class = "appshow2">
+    <%= link_to  image_tag(app['icon']) ,"/apps/#{app['id']}"%>
+    <p class = "show-title"><%= link_to app['name'] ,"/apps/#{app['id']}" %></p>
     <p> 下载次数:<%= app['dtimes'] %></p>
     <p> 更新时间:<%= app['uptime'] %></p>
-    <p> 评分:<%= app['rate'] %></p>
-  </hr>
+    <p class = "star-rate">评分:<%= raw(ratestars( app['rate'])) %></p>
+  </div>
 <% end %>
 <hr/>
 

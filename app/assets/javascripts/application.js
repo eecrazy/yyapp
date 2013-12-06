@@ -11,9 +11,9 @@
 // about supported directives.
 //
 // Include all twitter's javascripts
-//= require_tree .
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
+//= require_tree .
 

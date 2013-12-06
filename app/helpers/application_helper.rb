@@ -59,5 +59,22 @@ module ApplicationHelper
       2
     end
   end
-
+  def ratestars(rate)
+    ratei = rate.to_int
+    s = ""
+    ratei.times do |i|
+      s +=  "<img src=\"/assets/star.png\">"
+    end
+    leave = 5-ratei
+    if rate -ratei >0
+      leave = leave-1
+      s += "<img src=\"/assets/starhaft.png\">"
+    end
+    
+    leave.times do |i|
+      s +=  "<img src=\"/assets/starnone.png\">"
+    end
+    s
+  end
+  
 end

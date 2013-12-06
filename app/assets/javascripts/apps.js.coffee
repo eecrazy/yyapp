@@ -64,3 +64,4 @@ $ ->
       $("#hateable").html("<img src=\"/assets/hate.png\"><span>Hate It</span>")
     if urlnow == "/guess"
       window.location.href= "/guess"
+

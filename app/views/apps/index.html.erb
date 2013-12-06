@@ -2,16 +2,17 @@
 <% if can?(:create, App)%>
   <%= link_to '创建APP', new_app_path, type:"button", class:"btn btn-info",style:"float:right" %>
 <% end %>
-<h1>APP list</h1>
+<h1 align="center">APP list</h1>
 <hr/>
-<% @apps.each do |app| %>
-  <div class="applist">
-    <%= image_tag(app.icon) %>       </br>
-    <%= link_to app.name, app %>
-  </div>
-  </hr>
-<% end %>
+<div class = "applist">
+  <% @apps.each do |app| %>
+    <div class="appshow1">
+      <%= link_to image_tag(app.icon),app %>
+      <h3><%= link_to app.name, app %></h3>
+      <p><%= app.dtimes %>次下载</p>
+      <p class = "star-rate"><%= raw(ratestars(app.rate)) %></p>
+    </div>
+  <% end %>
 
-<div class="more">
-<%= will_paginate @apps %>  
+  <%= will_paginate @apps %>  
 </div>
