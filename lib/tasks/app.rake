@@ -95,7 +95,7 @@ namespace :db do
           comment = @app.comments.create!(comment: tag.text,
                                           user_id: @duser.id)
         end
-        
+        puts "----------finish"
         
       end  
     end
