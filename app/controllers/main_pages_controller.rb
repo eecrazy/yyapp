@@ -4,7 +4,7 @@ class MainPagesController < ApplicationController
       @app1 = App.order("uptime desc").limit(6)
       @app2 = App.order("dtimes desc").limit(6)
       @app3 = App.order("rate desc").limit(6)
-      indexs = rand_n(50,App.all.size) - current_user.has_app_id
+      indexs = rand_n(100,App.all.size) - current_user.has_app_id
       items = Hash.new(0)
       indexs.each do |i|
         a = App.find(i)
@@ -19,7 +19,7 @@ class MainPagesController < ApplicationController
   end
 
   def guess
-    indexs = rand_n(20,App.all.size) - current_user.has_app_id
+    indexs = rand_n(40,App.all.size) - current_user.has_app_id
     items = Hash.new(0)
     indexs.each do |i|
       a = App.find(i)
