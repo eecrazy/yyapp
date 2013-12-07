@@ -28,6 +28,7 @@ class MainPagesController < ApplicationController
     end
     maxitem = items.max_by{|k,v| v}
     @app = maxitem.first
+    @val = maxitem.second
   end
   
   def sign
