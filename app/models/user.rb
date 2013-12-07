@@ -63,12 +63,16 @@ class User < ActiveRecord::Base
 
   def similarity_with(user)
     # Array#& is the set intersection operator
-    agreements = (self.likes.select(:app_id) & user.likes.select(:app_id)).size
-    agreements += (self.hates.select(:app_id) & user.hates.select(:app_id)).size
-    disagreements = (self.likes.select(:app_id) & user.hates.select(:app_id)).size
-    disagreements += (self.hates.select(:app_id) & user.likes.select(:app_id)).size
+    u1like = self.likes.select(:app_id).collect{|v| v.app_id}
+    u2like = user.likes.select(:app_id).collect{|v| v.app_id}
+    u1hate = self.hates.select(:app_id).collect{|v| v.app_id}
+    u2hate = user.hates.select(:app_id).collect{|v| v.app_id}
+    agreements = (u1like & u2like).size
+    agreements += (u1hate & u2hate).size
+    disagreements = (u1like & u2hate).size
+    disagreements += (u1hate & u2like).size
     # Array#| is the set union operator
-    total = (self.likes.select(:app_id) + self.hates.select(:app_id)) | (user.likes.select(:app_id) + user.hates.select(:app_id))
+    total = (u1like + u1hate) | (u2like + u2hate)
     return (agreements - disagreements) / total.size.to_f
   end
 
