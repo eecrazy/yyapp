@@ -12,8 +12,7 @@ class MainPagesController < ApplicationController
       end
       items = items.sort_by{|k,v| -v}
       re = items.collect { |k, v| k }
-      @recommend = re[0..5]
-      
+      @recommend = re[0..5]      
     else
       render 'sign'
     end    
@@ -28,7 +27,8 @@ class MainPagesController < ApplicationController
     end
     maxitem = items.max_by{|k,v| v}
     @app = maxitem.first
-    @val = maxitem.second
+    @val = 100 * (maxitem.second)
+    
   end
   
   def sign

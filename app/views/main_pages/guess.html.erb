@@ -10,7 +10,7 @@
 </div>
 
 <div class = "guess-button">
-  <p>模拟您对该app的喜爱程度:<%= @val %></p>
+  <p>模拟您对该app的喜爱程度:<%= @val %>%</p>
   <hr/>
   <p>Tags:</p>
   <p class = "ptag"><%= raw  @app.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join('  ') %></p>
