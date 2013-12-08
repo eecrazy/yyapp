@@ -10,7 +10,7 @@ class CreateApps < ActiveRecord::Migration
       #t.string :ctag  , :default => ""
       #t.string :author, :default => ""
       t.date :uptime
-      t.float  :rate, :default => 0      
+      t.float :rate, :default => 0      
       t.text :desc , :default => ""
       t.timestamps
     end

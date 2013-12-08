@@ -18,11 +18,11 @@ gem "settingslogic", "2.0.9"
 #-------------------------------------------
 # search
 
-# gem 'redis','2.1.1'
-# gem 'chinese_pinyin', '~> 0.4.1'
-# gem 'rmmseg-cpp-huacnlee', '~> 0.2.9'
-# gem 'redis-namespace','~> 1.0.2'
-# gem 'redis-search', '~> 0.6.3'
+gem 'redis','2.1.1'
+gem 'chinese_pinyin', '~> 0.4.1'
+gem 'rmmseg-cpp-huacnlee', '~> 0.2.9'
+gem 'redis-namespace','~> 1.0.2'
+gem 'redis-search', '~> 0.6.3'
 
 
 #for rake
@@ -67,7 +67,7 @@ gem 'will_paginate', '3.0.4'
 gem 'sass-rails', '4.0.0'
 gem "bootstrap-sass", "~> 3.0.0.0"
 gem 'jquery-rails'
-#gem 'jquery-ui-rails'
+gem 'jquery-ui-rails'
 gem 'coffee-rails', '4.0.0'
 gem 'simple_form'
 
@@ -78,7 +78,7 @@ gem 'uglifier', '1.3.0'
 # gem 'therubyracer', platforms: :ruby
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-#gem 'turbolinks'
+gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '1.2'
